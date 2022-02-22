@@ -46,11 +46,19 @@ export default function LoginPage(props) {
   return (
     <>
       <Grid
+      style={{ backgroundImage: `url("https://imgur.com/APMUZfm.jpg")`, 
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      width: '100vw',
+      height: '100vh' }}
         textAlign="center"
        
         verticalAlign="middle"
       >
-        <Grid.Column style={{ maxWidth: 450 }}>
+        <Grid.Column style={{ maxWidth: 450,
+        position: 'center'
+         }}>
           <Header as="h2" color="grey" textAlign="center">
             <Image src="https://imgur.com/2vJhvOV.png" /> Log-in to your
             account
@@ -74,7 +82,6 @@ export default function LoginPage(props) {
                 required
               />
               <Button
-                color="olive"
                 fluid
                 size="large"
                 type="submit"

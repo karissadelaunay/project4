@@ -1,0 +1,17 @@
+.ui.button, .ui.buttons .button {
+    background-color: #88cf87;
+    color: #e4e768;
+    text-shadow: 0 0 black;
+    background-image: url'2048086.jpg';
+}
+
+
+.ui.segment {
+    position: center;
+    background: #e4e768;
+    box-shadow: none;
+    margin: 1rem 0;
+    padding: 1em 1em;
+    border-radius: 0.28571429rem;
+    border: 1px solid rgb(166 109 60);
+}
