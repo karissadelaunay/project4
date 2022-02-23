@@ -1,5 +1,5 @@
 .ui.button, .ui.buttons .button {
-    background-color: #f9f78d;
+    background-color: #ffeeac;
     color: #9acf9e;
     text-shadow: 0 0 black;
 }
@@ -7,10 +7,16 @@
 
 .ui.segment {
     position: center;
-    background: #87ca90;
+    background: #82b885;
     box-shadow: none;
     margin: 1rem 0;
     padding: 1em 1em;
     border-radius: 0.28571429rem;
-    border: 1px solid rgb(230 246 144);
+    border: 1px solid rgb(255 229 124);
+}
+
+.ui.grid {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
 }

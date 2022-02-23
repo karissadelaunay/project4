@@ -3,7 +3,7 @@ body {
     padding: 0;
     overflow-x: hidden;
     min-width: 320px;
-    background: #756652;
+    background: #ffe57ca1;
     font-size: 14px;
     line-height: 1.4285em;
     color: rgba(0,0,0,.87);
@@ -15,5 +15,15 @@ a {
 }
 
 i.yellow.icon {
-    color: #f9f78d!important;
+    color: #ffe57c!important;
+}
+
+.ui.segment {
+    position: center;
+    background: #82b885;
+    box-shadow: black;
+    margin: 1rem 0;
+    padding: 1em 1em;
+    border-radius: 2.285714rem;
+    border: 1px solid rgb(255 229 124);
 }

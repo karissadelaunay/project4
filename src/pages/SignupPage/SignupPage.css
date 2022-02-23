@@ -1,6 +1,11 @@
 .ui.button, .ui.buttons .button {
-    background-color: #88cf87;
-    color: #e4e768;
+    background-color: #ffeeac;
+    color: #9acf9e;
     text-shadow: 0 0 black;
-    background-image: url'2048086.jpg';
+}
+
+.ui.grid {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-right: 2rem;
 }
