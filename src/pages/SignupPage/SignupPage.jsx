@@ -78,9 +78,19 @@ export default function SignUpPage(props) {
   }
 
   return (
-    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
+    <Grid
+      style={{ backgroundImage: `url("https://imgur.com/APMUZfm.jpg")`, 
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      width: '100vw',
+      height: '100vh' }}
+        textAlign="center"
+       
+        verticalAlign="middle"
+      >
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as="h2" color="olive" textAlign="center">
+        <Header as="h2" color="grey" textAlign="center">
           <Image src="https://imgur.com/2vJhvOV.png" /> Sign Up
         </Header>
         <Form autoComplete="off" onSubmit={handleSubmit}>
@@ -131,7 +141,7 @@ export default function SignUpPage(props) {
                 required
               />
             </Form.Field>
-            <Button type="submit" className="btn" color="olive">
+            <Button type="submit" className="btn">
               Signup
             </Button>
           </Segment>

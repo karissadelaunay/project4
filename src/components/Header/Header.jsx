@@ -6,7 +6,6 @@ export default function PageHeader({ user, handleLogout }) {
     console.log(user, 'user in header')
   return (
     <Segment clearing>
-        <Header as='h1' float='center'>Aryas Apothecary</Header>
       <Header as="h2" floated="right">
         <Link to="/">
           <Icon name="home"></Icon>

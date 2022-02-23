@@ -6,6 +6,7 @@ import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import Loading from "../../components/Loader/Loader";
 import * as postsAPI from "../../utils/postApi";
 import * as likesAPI from "../../utils/likeApi";
+import "./Feed.css";
 import { Grid } from "semantic-ui-react";
 
 export default function Feed({ user, handleLogout }) {
