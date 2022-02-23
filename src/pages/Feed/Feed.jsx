@@ -10,45 +10,35 @@ import "./Feed.css";
 import { Grid } from "semantic-ui-react";
 
 export default function Feed({ user, handleLogout }) {
-  const [posts, setPosts] = useState([]); // <- likes are inside of the each post in the posts array
+  const [posts, setPosts] = useState([]); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // C create in Crud for Likes
-  // we will invoke these functions when the heart is clicked in the post card,
-  // so we need to pass the function down to the postCard in order for it to use it
   async function addLike(postId) {
     try {
       const data = await likesAPI.create(postId);
       console.log(data, " this is from addLike");
-      getPosts(); // < - will get all the posts and update the state, with our like added to the post
+      getPosts(); 
     } catch (err) {
       console.log(err.message);
       setError(err.message);
     }
   }
 
-  // we will invoke these functions when the heart is clicked in the post card,
-  // so we need to pass the function down to the postCard in order for it to use it
   async function removeLike(likeId) {
     try {
       const data = await likesAPI.removeLike(likeId);
-      getPosts(); // < - will get all the posts and update the state, with our like added to the post
+      getPosts(); 
     } catch (err) {
       console.log(err.message);
       setError(err.message);
     }
   }
 
-  // C create in Crud
-  // we invoke this function in addPost component when the submit button on our form is clicked
-  // so we need to pass it as a prop
   async function handleAddPost(post) {
     try {
       setLoading(true);
-      const data = await postsAPI.create(post); // our server is going to return
-      // the created post, that will be inside of data, which is the response from
-      // the server, we then want to set it in state
+      const data = await postsAPI.create(post); 
       console.log(data, " this is response from the server, in handleAddPost");
       setPosts([data.post, ...posts]);
       setLoading(false);
@@ -59,7 +49,6 @@ export default function Feed({ user, handleLogout }) {
     }
   }
 
-  // R read in crud
   async function getPosts() {
     try {
       const data = await postsAPI.getAll();
@@ -72,9 +61,6 @@ export default function Feed({ user, handleLogout }) {
     }
   }
 
-  // useEffect runs once
-  // the component is first rendered (whenever you first view the component)
-  // Component Lifecycle in react
   useEffect(() => {
     getPosts();
   }, []);

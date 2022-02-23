@@ -34,11 +34,9 @@ export default function LoginPage(props) {
 
     try {
       await userService.login(state);
-      // Route to wherever you want!
       props.handleSignUpOrLogin();
       navigate("/");
     } catch (err) {
-      // Invalid user data (probably duplicate email)
       setError(err.message);
     }
   }

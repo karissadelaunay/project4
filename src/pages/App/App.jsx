@@ -11,7 +11,7 @@ function App() {
   const [user, setUser] = useState(userService.getUser());
 
   function handleSignUpOrLogin() {
-    setUser(userService.getUser()); // < decoding the token from localstorage and setting the user object in state
+    setUser(userService.getUser()); 
     
   }
 
@@ -19,9 +19,9 @@ function App() {
     userService.logout();
     setUser(null);
   }
-  // {user ? <Routes>With feed and profifle</Routes : <Routes login signup> </Routes}
+  
   console.log(user, ' this user')
-  if(user) { // are we logged in?
+  if(user) {
     return (
     <Routes>
       <Route

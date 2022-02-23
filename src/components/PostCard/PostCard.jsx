@@ -10,13 +10,7 @@ function PostCard({post, isProfile, user, addLike, removeLike}) {
 
   const likeColor = likedIndex > -1 ? 'yellow' : 'grey';
 
-
-  // step 3 onClick Handler
-  // if the user has liked the post, 
-  // clickHandler = removeLike
   const clickHandler = likedIndex > -1 ? () => removeLike(post.likes[likedIndex]._id) : () => addLike(post._id)
-  // if the user hasn't liked the post
-  // clickHandler = addLike
 
 
 	

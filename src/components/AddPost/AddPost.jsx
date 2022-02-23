@@ -25,15 +25,11 @@ export default function AddJuiceForm(props){
     e.preventDefault()
              
     const formData = new FormData()
-    formData.append('photo', selectedFile); // this key matches the key in multer in the 
-	// routes/api/posts create route upload.single('photo')
-    formData.append('caption', state.caption)
+    formData.append('photo', selectedFile);
     formData.append('location', state.location)
    
 	props.handleAddPost(formData)
-    // Have to submit the form now! We need a function!
   }
-
 
   return (
     
