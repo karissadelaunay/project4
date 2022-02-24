@@ -5,6 +5,7 @@ import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import ProfilePage from "../ProfilePage/ProfilePage";
 import Feed from "../Feed/Feed";
+import Juice from "../Juice/Juice";
 import userService from "../../utils/userService";
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
   if(user) {
     return (
     <Routes>
+      <Route
+        path="/juice"
+        element={<Juice user={user} handleLogout={handleLogout} />}
+        />
       <Route
         path="/"
         element={<Feed user={user} handleLogout={handleLogout} />}
