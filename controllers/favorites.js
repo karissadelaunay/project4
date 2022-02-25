@@ -9,7 +9,7 @@ async function create(req, res){
  
     try {
         const juice = await Juice.findById(req.params.id);
-        juice.likes.push({username: req.user.username, userId: req.user._id}); 
+        juice.favorites.push({username: req.user.username, userId: req.user._id}); 
         await juice.save()
         res.status(201).json({data: 'favorite added'})
     } catch(err){
@@ -22,9 +22,10 @@ async function create(req, res){
 async function deleteFavorite(req, res){
     try {
         
-        const juice = await Juice.findOne({'likes._id': req.params.id, 'likes.username': req.user.username});
-        juice.likes.remove(req.params.id) 
-		console.log(post, " <-= juice in delete!")
+        const juice = await Juice.findOne({'favorites._id': req.params.id, 'favorites.username': req.user.username});
+        console.log(juice, '<-------this juice stuff favorites')
+        juice.favorites.remove(req.params.id) 
+		console.log(juice, " <-= juice in delete!")
         
         await juice.save()
         res.json({data: 'favorite removed'})

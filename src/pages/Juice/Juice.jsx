@@ -25,9 +25,9 @@ const Juice = (props) => {
         }
       }
 
-      async function addFavorite(postId) {
+      async function addFavorite(juiceId) {
         try {
-          const data = await favoritesAPI.create(juices);
+          const data = await favoritesAPI.create(juiceId);
           console.log(data, " this is from addLike");
           getJuice(); 
         } catch (err) {
@@ -39,6 +39,7 @@ const Juice = (props) => {
       async function removeFavorite(favoritesId) {
         try {
           const data = await favoritesAPI.removeFavorite(favoritesId);
+          console.log(data, '<-----delete data')
           getJuice(); 
         } catch (err) {
           console.log(err.message);
@@ -56,14 +57,11 @@ const Juice = (props) => {
           <Grid.Row>
             <Grid.Column>
               <Header handleLogout={props.handleLogout} user={props.user}/>
-              <JuiceImgs juices={juices[0]}/>
-              <JuiceImgs juices={juices[1]} />
-              <JuiceImgs juices={juices[2]} />
-              <JuiceImgs juices={juices[3]} />
-              <JuiceImgs 
-                addFavorite={addFavorite}
-                removeFavorite={removeFavorite}
-            />
+              {juices.map((juice) => (
+                <JuiceImgs juice={juice} addFavorite={addFavorite} removeFavorite={removeFavorite} user={props.user}/>
+              ))
+              }
+              
             </Grid.Column>
           </Grid.Row>
          </Grid>

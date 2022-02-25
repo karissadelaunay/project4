@@ -4,30 +4,32 @@ import { Grid, GridColumn, GridRow, Image, Icon, Card } from "semantic-ui-react"
 
 
 function JuiceImgs({ 
-    juices,
+    juice,
     addFavorite,
     removeFavorite,
     user
 }) {
-    const favoriteIndex = juices.favorite.findIndex(favorite => favorite.username === user.username)
+    const favoriteIndex = juice?.favorites.findIndex(favorite => favorite.username === user.username)
+console.log( favoriteIndex, "<-------index")
 
 
-  const favoriteColor = favoriteIndex > -1 ? 'yellow' : 'grey';
+const favoriteColor = favoriteIndex > -1 ? 'yellow' : 'grey';
 
-  const clickHandler = favoriteIndex > -1 ? () => removeFavorite(juices.favorite[favoriteIndex]._id) : () => addFavorite(juices._id)
+const clickHandler = favoriteIndex > -1 ? () => removeFavorite(juice?.favorites[favoriteIndex]._id) : () => addFavorite(juice._id)
+
 
     return (
-        <Grid columns={2}>
-            <GridRow columns={2}>
+        <Grid>
+            <GridRow>
                 <GridColumn>
                 <Image
-                    src={juices?.imgUrl ? juices.imgUrl : ''}
+                    src={juice?.imgUrl ? juice.imgUrl : ''}
                 />
                 </GridColumn>
             </GridRow>
                 <GridColumn extra textAlign={"right"}>
 	                <Icon name={"heart"} size="large" color={favoriteColor} onClick={clickHandler}/>
-	                {juices.favorites.length} Favorites
+	                {juice?.favorites.length} Favorites
 	            </GridColumn>
         </Grid>
     )

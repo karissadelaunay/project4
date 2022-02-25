@@ -19,7 +19,7 @@ const BASE_URL = '/api/juices/'
 export function getAll() {
 	return fetch(BASE_URL, {
         method: "GET",
-        imgUrl: "",
+        // imgUrl: "",
 	    headers: {
 		    'Authorization': 'Bearer ' + tokenService.getToken()
 	  }

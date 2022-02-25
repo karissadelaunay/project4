@@ -10,11 +10,28 @@ import userService from "../../utils/userService";
 
 function App() {
   const [user, setUser] = useState(userService.getUser());
+  // const [posts, setPosts] = useState([]); 
 
   function handleSignUpOrLogin() {
     setUser(userService.getUser()); 
     
   }
+
+  // async function getPosts() {
+  //   try {
+  //     const data = await postsAPI.getAll();
+  //     console.log(data, " this is data,");
+  //     setPosts([...data.posts]);
+  //     setLoading(false);
+  //   } catch (err) {
+  //     console.log(err.message, " this is the error");
+  //     setError(err.message);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   getPosts();
+  // }, []);
 
   function handleLogout() {
     userService.logout();
