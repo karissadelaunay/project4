@@ -57,13 +57,14 @@ async function index(req, res) {
   }
 
   
-async function getRandomPost(res, req) {
+async function getRandomPost(req, res) {
+	console.log("this is my random post function")
 	try{
 
 			const numPosts = await Post.estimatedDocumentCount()
 			const random = Math.floor(Math.random() * numPosts)
-			const randomPost = await Post.findOne().skip(random)
-			return randomPost
+			const randomPost = await Post.find().skip(random).limit(1).populate('user').exec()
+			res.status(200).json({ post: randomPost });
 
 
 	} catch(err){

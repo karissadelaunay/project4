@@ -7,6 +7,9 @@ export default function PageHeader({ user, handleLogout }) {
   return (
     <Segment clearing>
       <Header as="h2" floated="right">
+      <Link to="/random">
+          <Icon name="image"></Icon>
+        </Link>
         <Link to="/juice">
           <Icon name="leaf"></Icon>
         </Link>

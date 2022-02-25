@@ -30,7 +30,7 @@ export function getAll() {
 
 
 export function getRandomPost() {
-	return fetch(BASE_URL, {
+	return fetch(`${BASE_URL}random`, {
 		headers: {
 			'Authorization': 'Bearer ' + tokenService.getToken()
 		  }
