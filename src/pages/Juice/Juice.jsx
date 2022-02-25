@@ -1,11 +1,9 @@
 import Header from "../../components/Header/Header";
-import { useNavigate, Link } from "react-router-dom";
-// import userService from "../../utils/userService";
-import { Grid } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import * as juiceAPI from "../../utils/juiceApi";
 import * as favoritesAPI from "../../utils/favoriteApi";
 import JuiceImgs from "../../components/JuiceImgs/JuiceImgs";
+import { Grid } from "semantic-ui-react";
 
 
 

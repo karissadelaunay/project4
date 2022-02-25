@@ -6,7 +6,8 @@ const upload = multer();
 
 
 router.post('/', isAuthenticated, upload.single('photo'), postsCtrl.create);
-router.get('/', postsCtrl.index)
+router.get('/', postsCtrl.index);
+router.get('/random', postsCtrl.getRandomPost);
 
 function isAuthenticated(req, res, next){
 	if(req.user){
