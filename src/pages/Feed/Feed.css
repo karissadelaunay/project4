@@ -27,3 +27,12 @@ i.yellow.icon {
     border-radius: 2.285714rem;
     border: 1px solid rgb(255 229 124);
 }
+
+.ui.grid>.column:not(.row), .ui.grid>.row>.column {
+    position: relative;
+    display: inline-table;
+    width: 6.25%;
+    padding-left: 4rem;
+    padding-right: 1rem;
+    vertical-align: top;
+}

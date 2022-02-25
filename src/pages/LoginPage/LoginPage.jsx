@@ -58,8 +58,7 @@ export default function LoginPage(props) {
         position: 'center'
          }}>
           <Header as="h2" color="grey" textAlign="center">
-            <Image src="https://imgur.com/2vJhvOV.png" /> Log-in to your
-            account
+            <Image src="https://imgur.com/2vJhvOV.png" /> Log-in
           </Header>
           <Form autoComplete="off" onSubmit={handleSubmit}>
             <Segment stacked>

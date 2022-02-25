@@ -4,7 +4,7 @@ const favoriteSchema = mongoose.Schema({
 
   username: String,
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  imgUrl: [imgUrl]
+//   imgUrl: [imgUrl]
 })
 
 const juiceSchema = new mongoose.Schema({

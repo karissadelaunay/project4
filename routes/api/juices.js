@@ -5,8 +5,8 @@ const multer = require('multer');
 const upload = multer(); 
 
 
-router.post('/juices', isAuthenticated, upload.single('photo'), juicesCtrl.create);
-router.get('/juices', juicesCtrl.index)
+router.post('/', isAuthenticated, upload.single('photo'), juicesCtrl.create);
+router.get('/', juicesCtrl.index)
 
 function isAuthenticated(req, res, next){
 	if(req.user){

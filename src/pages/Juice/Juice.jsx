@@ -1,61 +1,71 @@
 import Header from "../../components/Header/Header";
 import { useNavigate, Link } from "react-router-dom";
-import userService from "../../utils/userService";
+// import userService from "../../utils/userService";
 import { Grid } from "semantic-ui-react";
 import React, { useEffect, useState } from "react";
 import * as juiceAPI from "../../utils/juiceApi";
+import * as favoritesAPI from "../../utils/favoriteApi";
+import JuiceImgs from "../../components/JuiceImgs/JuiceImgs";
+
+
 
 const Juice = (props) => {
-    const [juice, setJuice] = useState([])
+    const [juices, setJuices] = useState([])
     const [error, setError] = useState("");
 
-    // const imgData = [{
-    //     imgUrl: ''
-        
-    // }]
-
     async function getJuice() {
-        console.log(juice, "this is the juicesss")
         try {
           const data = await juiceAPI.getAll();
           console.log(data, " this is data,");
-          setJuice([...data.imgUrl]);
+          setJuices(data.juices);
+          console.log(juices, "these are the juices")
         } catch (err) {
           console.log(err.message, " this is the error");
           setError(err.message);
         }
       }
 
+      async function addFavorite(postId) {
+        try {
+          const data = await favoritesAPI.create(juices);
+          console.log(data, " this is from addLike");
+          getJuice(); 
+        } catch (err) {
+          console.log(err.message);
+          setError(err.message)
+        }
+      }
+    
+      async function removeFavorite(favoritesId) {
+        try {
+          const data = await favoritesAPI.removeFavorite(favoritesId);
+          getJuice(); 
+        } catch (err) {
+          console.log(err.message);
+          setError(err.message)
+        }
+      }
+    
+
       useEffect(() => {
         getJuice();
       }, []);
-
-    // useEffect(() => {
-        // async function getJuice(imgData) {
-        //     try {
-        //       const data = await userService.getJuice(imgData);
-        //       console.log(data, " <- data");
-        //       setJuice(() => imgData);
-        //       console.log(imgData, 'this is the data in the images array')
-              
-        //     } catch (err) {
-        //       console.log(err);
-        //       setError("No juices here!");
-        //     }
-        //   }
-      
-        //   getJuice(imgData);
-        // console.log(juice, "this is the juicesss")
-    // },[])
 
     return (
         <Grid>
           <Grid.Row>
             <Grid.Column>
               <Header handleLogout={props.handleLogout} user={props.user}/>
+              <JuiceImgs juices={juices[0]}/>
+              <JuiceImgs juices={juices[1]} />
+              <JuiceImgs juices={juices[2]} />
+              <JuiceImgs juices={juices[3]} />
+              <JuiceImgs 
+                addFavorite={addFavorite}
+                removeFavorite={removeFavorite}
+            />
             </Grid.Column>
           </Grid.Row>
-          {/* <Image src={ props.juice.imgUrl } /> */}
          </Grid>
       );
     }
