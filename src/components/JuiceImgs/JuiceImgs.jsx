@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Image, Icon, Card, CardContent } from "semantic-ui-react";
 
 
@@ -19,7 +18,8 @@ const clickHandler = favoriteIndex > -1 ? () => removeFavorite(juice?.favorites[
 
 
     return (
-        <Card>
+        <Card.Group>
+            <Card>
             <CardContent>
                 <Image
                     src={juice?.imgUrl ? juice.imgUrl : ''}
@@ -29,7 +29,8 @@ const clickHandler = favoriteIndex > -1 ? () => removeFavorite(juice?.favorites[
 	                <Icon name={"heart"} size="large" color={favoriteColor} onClick={clickHandler}/>
 	                {juice?.favorites.length} Favorites
 	            </CardContent>
-        </Card>
+                </Card>
+        </Card.Group>
     )
 }
 

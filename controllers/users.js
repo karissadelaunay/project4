@@ -9,24 +9,8 @@ const s3 = new S3();
 module.exports = {
   signup,
   login,
-  profile,
-  // updateBio
+  profile
 };
-
-// async function updateBio(req, res){
-//   try{
-//     const user = await User.findOne({bio: req.params.bio})
-//     if(!user) return res.status(404).json({err: 'User not found'})
-
-//     const bio = await Bio.find({user: user._id}).Update("user").exec();
-//     console.log(bio, "this is the key being updated")
-//     res.status(200).json({bio: bio, user: user})
-
-//   }catch(err){
-//     console.log(err)
-//     res.status(400).json({err})
-//   }
-// }
 
 async function profile(req, res){
   try {

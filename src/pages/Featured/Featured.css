@@ -1,0 +1,8 @@
+h1, h2, h3, h4, h5 {
+    font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    line-height: 1.28571429em;
+    margin: calc(2rem - 0.14285714em) 0 1rem;
+    font-weight: 700;
+    padding: 0;
+    color: #82b884;
+}

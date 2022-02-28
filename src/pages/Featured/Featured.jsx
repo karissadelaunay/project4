@@ -5,6 +5,8 @@ import * as postsAPI from "../../utils/postApi";
 import * as likesAPI from "../../utils/likeApi";
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
+import { Grid } from "semantic-ui-react";
+import "./Featured.css";
 
 
 export default function Featured({
@@ -103,10 +105,19 @@ function runOncePerDay(){
         );
       } else {
     return (
-        <>
-        <Header handleLogout={handleLogout} user={user} />
-        <h1>Featured Photo of the Day</h1>
-        <PostCard post={RandomPost} user={user} addLike={addLike} removeLike={removeLike}/>
-        </>
+        <Grid centered>
+            <Grid.Row>
+                <Grid.Column>
+                    <Header handleLogout={handleLogout} user={user} />
+                </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                    <h1>Featured Photo of the Day</h1>
+                    <PostCard post={RandomPost} user={user} addLike={addLike} removeLike={removeLike}/>
+                    <h4>Check and see if YOUR photo is featured!</h4>
+                </Grid.Column>
+            </Grid.Row>
+        </Grid>
     )}
 }

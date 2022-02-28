@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import * as juiceAPI from "../../utils/juiceApi";
 import * as favoritesAPI from "../../utils/favoriteApi";
 import JuiceImgs from "../../components/JuiceImgs/JuiceImgs";
-import { Grid } from "semantic-ui-react";
+import { Grid, Sidebar, SidebarPushable, SidebarPusher } from "semantic-ui-react";
 
 
 
@@ -48,21 +48,32 @@ const Juice = (props) => {
 
       useEffect(() => {
         getJuice();
-      }, []);
+      });
 
     return (
-        <Grid>
-          <Grid.Row>
-            <Grid.Column>
-              <Header handleLogout={props.handleLogout} user={props.user}/>
+        <Grid centered Column={2}>
+            <Grid.Row>
+                <Grid.Column>
+            <Header handleLogout={props.handleLogout} user={props.user}/>
+                </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+            <Grid.Column style={{ maxWidth: 650 }}>
               {juices.map((juice) => (
-                <JuiceImgs key={juice._id} juice={juice} addFavorite={addFavorite} removeFavorite={removeFavorite} user={props.user}/>
+                <JuiceImgs key={juice._id} juice={juice} addFavorite={addFavorite} removeFavorite={removeFavorite} user={props.user} />
               ))
               }
-              
             </Grid.Column>
-          </Grid.Row>
-         </Grid>
+            </Grid.Row>
+            <Grid.Row>
+            <Grid.Column>
+            <SidebarPushable>Buy in stores at Alana's Coffee Roaster</SidebarPushable>
+            <SidebarPusher>Located in West Hollywood and Venice</SidebarPusher>
+            <SidebarPusher>Venice Location: 12511 Venice Blvd, Los Angeles, CA 90066</SidebarPusher>
+            <SidebarPusher>WEHO Location: 634 N Robertson Blvd, West Hollywood, CA 90069</SidebarPusher>
+            </Grid.Column>
+            </Grid.Row>
+        </Grid>
       );
     }
 

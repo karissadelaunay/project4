@@ -52,24 +52,10 @@ function getProfile(username){
 
 }
 
-// function updateBio(bio){
-  
-//   return fetch(BASE_URL + bio, {
-//     headers: {
-//       'Authorization': 'Bearer ' + tokenService.getToken()
-//     }
-//   }).then(res => {
-//     if(res.ok) return res.json()
-//     throw new Error('User not found!')
-//   })
-// }
-
-
 export default {
   signup, 
   logout,
   login,
   getUser,
-  getProfile,
-  // updateBio
+  getProfile
  };

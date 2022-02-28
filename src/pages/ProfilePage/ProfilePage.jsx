@@ -54,16 +54,6 @@ export default function ProfilePage(props) {
     }
   }
 
-  // async function updateBio(userId) {
-  //   try {
-  //     const data = await userService.updateBio(userId)
-  //     getProfile();
-  //   } catch(err){
-  //     console.log(err.message);
-  //     setError(err.message)
-  //   }
-  // }
-
   useEffect(() => {
 
     async function getProfile() {
