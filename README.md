@@ -38,12 +38,12 @@ SECRET=mysecretforjwt
 
 The app is configured, to use those respective key names for the database, jwt secret and aws bucket, of course you'll have your own values
 
-#### Aryas Apothecary
+## Aryas Apothecary
 
 1. This App is all about Juice.  Arays Apothecary is a local venice juice company.  On this app you can post pictures of yourself or your animals or anything you want with a juice from Aryas Apothecary with a chance to be featured as the photo of the day!  You can also check out the juice products available from the company with locations to buy from.  You can check out your profile page and like others posts.  You can even favorite the juice products available from the company!
 
 
-## Technologies Used
+#### Technologies Used
 1. JavaScript
 2. MongoDB
 3. Mongoose
@@ -57,10 +57,10 @@ The app is configured, to use those respective key names for the database, jwt s
 11. AWS S3
 12. Semantic-UI styling
 
-## Trello Board
+#### Trello Board
 https://trello.com/b/5Gmq15zf/aryas-apothecary-juice-app
 
-## WireFrames
+#### WireFrames
 <img width="802" alt="Screen Shot 2022-02-28 at 3 06 18 PM" src="https://user-images.githubusercontent.com/94722723/156073267-a6efdc53-1d05-4932-a4ba-42f4ff2ab486.png">
 
 #### Screen Shots of Application
@@ -70,7 +70,7 @@ https://trello.com/b/5Gmq15zf/aryas-apothecary-juice-app
 <img width="1413" alt="Screen Shot 2022-02-28 at 3 08 51 PM" src="https://user-images.githubusercontent.com/94722723/156073775-d909e93e-f966-449e-b800-63e5e9fc3bc2.png">
 <img width="1423" alt="Screen Shot 2022-02-28 at 3 09 20 PM" src="https://user-images.githubusercontent.com/94722723/156073926-22a5c56b-1cca-4137-8eae-37eb884fd743.png">
 
-## Ice Box Features
+#### Ice Box Features
 1.  I want to be able to see my favorites products on my profile page
 2.  I want to be able to change and edit my bio and profile photo
 3.  I want to get notified if I am the featured photo of the day
