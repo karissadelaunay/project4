@@ -56,7 +56,7 @@ const Juice = (props) => {
             <Grid.Column>
               <Header handleLogout={props.handleLogout} user={props.user}/>
               {juices.map((juice) => (
-                <JuiceImgs juice={juice} addFavorite={addFavorite} removeFavorite={removeFavorite} user={props.user}/>
+                <JuiceImgs key={juice._id} juice={juice} addFavorite={addFavorite} removeFavorite={removeFavorite} user={props.user}/>
               ))
               }
               

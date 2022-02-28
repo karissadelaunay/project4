@@ -11,7 +11,8 @@ async function create(req, res){
         const post = await Post.findById(req.params.id);
         post.likes.push({username: req.user.username, userId: req.user._id}); 
         await post.save()
-        res.status(201).json({data: 'like added'})
+        await post.populate('user')
+        res.status(201).json({post: post})
     } catch(err){
        
         res.status(400).json({err})
@@ -27,7 +28,8 @@ async function deleteLike(req, res){
 		console.log(post, " <-= post in delete!")
         
         await post.save()
-        res.json({data: 'like removed'})
+        await post.populate('user')
+        res.json({post: post})
     } catch(err){
         res.status(400).json({err})
     }

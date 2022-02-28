@@ -15,8 +15,7 @@ export default function Featured({
     removeLike
 
 }){
-    const [RandomPost, setRandomPost] = useState(null); 
-    // const [intervalCall, setInterval] = useState()
+    const [RandomPost, setRandomPost] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     console.log(RandomPost, "<---this is the random post")
@@ -25,7 +24,7 @@ export default function Featured({
       try {
         const data = await likesAPI.create(postId);
         console.log(data, " this is from addLike");
-        getRandomPostFromPosts(); 
+        setRandomPost(data.post)
       } catch (err) {
         console.log(err.message);
         setError(err.message);
@@ -35,7 +34,8 @@ export default function Featured({
     async function removeLike(likeId) {
       try {
         const data = await likesAPI.removeLike(likeId);
-        getRandomPostFromPosts(); 
+        console.log(data)
+        setRandomPost(data.post)
       } catch (err) {
         console.log(err.message);
         setError(err.message);
@@ -47,26 +47,42 @@ export default function Featured({
       try {
         const data = await postsAPI.getRandomPost();
         console.log(data, " this is data,");
-        setRandomPost(data.post[0]);
+        localStorage.setItem('featured', JSON.stringify(data.post[0]))
+        setRandomPost(localStorage.featured);
         setLoading(false);
       } catch (err) {
         console.log(err.message, " this is the error");
         setError(err.message);
       }
     }
-  
-    // useEffect(() => {
-    //     const intervalCall = setInterval(() => {
-    //       getRandomPostFromPosts();
-    //     }, 1000);
-    //     return () => {
-    //       // clean up
-    //       clearInterval(intervalCall);
-    //     };
-    //   }, []);
+
+    function hasOneDayPassed(){
+  let date = new Date().toLocaleDateString();
+
+  if( localStorage.yourapp_date == date ) {
+  console.log(localStorage.yourapp_date, date, "<---this is local storage date")
+      return false;
+  }
+
+  localStorage.yourapp_date = date;
+  console.log(localStorage.yourapp_date, "<----the local storage stuff")
+  return true;
+}
+
+function runOncePerDay(){
+    if( hasOneDayPassed() === false ) return false;
+    console.log("running get random posts")
+    
+    localStorage.removeItem('featured')
+    getRandomPostFromPosts();
+  }
+
 
     useEffect(() => {
-        getRandomPostFromPosts();
+        runOncePerDay();
+        if(localStorage.featured) setRandomPost(JSON.parse(localStorage.featured));
+        setLoading(false);
+
     }, []);
 
     if (loading) {

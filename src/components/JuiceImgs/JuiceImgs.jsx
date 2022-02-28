@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Grid, GridColumn, GridRow, Image, Icon, Card } from "semantic-ui-react";
+import { Image, Icon, Card, CardContent } from "semantic-ui-react";
 
 
 function JuiceImgs({ 
@@ -19,19 +19,17 @@ const clickHandler = favoriteIndex > -1 ? () => removeFavorite(juice?.favorites[
 
 
     return (
-        <Grid>
-            <GridRow>
-                <GridColumn>
+        <Card>
+            <CardContent>
                 <Image
                     src={juice?.imgUrl ? juice.imgUrl : ''}
                 />
-                </GridColumn>
-            </GridRow>
-                <GridColumn extra textAlign={"right"}>
+            </CardContent>
+                <CardContent extra textAlign={"right"}>
 	                <Icon name={"heart"} size="large" color={favoriteColor} onClick={clickHandler}/>
 	                {juice?.favorites.length} Favorites
-	            </GridColumn>
-        </Grid>
+	            </CardContent>
+        </Card>
     )
 }
 

@@ -26,7 +26,8 @@ export default function AddJuiceForm(props){
              
     const formData = new FormData()
     formData.append('photo', selectedFile);
-    formData.append('location', state.location)
+    formData.append('caption', state.caption);
+    formData.append('location', state.location);
    
 	props.handleAddPost(formData)
   }
