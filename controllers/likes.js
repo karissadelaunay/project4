@@ -21,9 +21,11 @@ async function create(req, res){
 }
 
 async function deleteLike(req, res){
+    console.log(req.params, "<---this is the params", req.user, "<---this is the user")
     try {
         
         const post = await Post.findOne({'likes._id': req.params.id, 'likes.username': req.user.username});
+        if(!post) return console.log("could not find a post")
         post.likes.remove(req.params.id) 
 		console.log(post, " <-= post in delete!")
         

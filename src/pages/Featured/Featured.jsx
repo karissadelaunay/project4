@@ -23,10 +23,13 @@ export default function Featured({
     console.log(RandomPost, "<---this is the random post")
   
     async function addLike(postId) {
+        console.log(postId, "<-----this is the id of the post")
       try {
+          setLoading(true)
         const data = await likesAPI.create(postId);
         console.log(data, " this is from addLike");
-        setRandomPost(data.post)
+        localStorage.setItem('featured', JSON.stringify(data.post))
+        // setRandomPost(localStorage.featured);
       } catch (err) {
         console.log(err.message);
         setError(err.message);
@@ -34,10 +37,13 @@ export default function Featured({
     }
   
     async function removeLike(likeId) {
+        console.log(likeId, "<----- this is the id of the like")
       try {
+        setLoading(true)
         const data = await likesAPI.removeLike(likeId);
         console.log(data)
-        setRandomPost(data.post)
+        localStorage.setItem('featured', JSON.stringify(data.post))
+        // setRandomPost(localStorage.featured);
       } catch (err) {
         console.log(err.message);
         setError(err.message);
@@ -51,7 +57,6 @@ export default function Featured({
         console.log(data, " this is data,");
         localStorage.setItem('featured', JSON.stringify(data.post[0]))
         setRandomPost(localStorage.featured);
-        setLoading(false);
       } catch (err) {
         console.log(err.message, " this is the error");
         setError(err.message);
@@ -61,7 +66,7 @@ export default function Featured({
     function hasOneDayPassed(){
   let date = new Date().toLocaleDateString();
 
-  if( localStorage.yourapp_date == date ) {
+  if( localStorage.yourapp_date == date && localStorage.featured != null) {
   console.log(localStorage.yourapp_date, date, "<---this is local storage date")
       return false;
   }
@@ -81,11 +86,12 @@ function runOncePerDay(){
 
 
     useEffect(() => {
+        console.log("we are in the useEffect ayy")
         runOncePerDay();
         if(localStorage.featured) setRandomPost(JSON.parse(localStorage.featured));
         setLoading(false);
 
-    }, []);
+    }, [loading]);
 
     if (loading) {
         return (
