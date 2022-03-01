@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 mongoose.connect(
-  process.env.DATABASE_URL,
+  'mongodb+srv://karissadelaunay:15183394Kd@cluster1.1aqka.mongodb.net/aryasapothecaryP4?retryWrites=true&w=majority',
   { useNewUrlParser: true,
     useUnifiedTopology: true,
-
   }
 );
 
