@@ -35,6 +35,7 @@ async function signup(req, res) {
   const params = {Bucket: process.env.BUCKET_NAME, Key: filePath, Body: req.file.buffer};
 
   s3.upload(params, async function(err, data){
+    console.log(err)
     console.log(data, 'from aws') 
     const user = new User({...req.body, photoUrl: data.Location});
     try {
