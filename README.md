@@ -53,7 +53,6 @@ The app is configured, to use those respective key names for the database, jwt s
 7. React.js
 8. JSX
 9. HTML
-10. Node.js
 11. AWS S3
 12. Semantic-UI styling
 
