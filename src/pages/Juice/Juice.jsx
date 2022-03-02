@@ -51,7 +51,7 @@ const Juice = (props) => {
       },[]);
 
     return (
-        <Grid centered Column={2}>
+        <Grid centered column={2}>
             <Grid.Row>
                 <Grid.Column>
             <Header handleLogout={props.handleLogout} user={props.user}/>
