@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function PostCard({post, isProfile, user, addLike, removeLike}) { 
 
 
-  const likedIndex = post.likes.findIndex(like => like.username === user.username)
+  const likedIndex = post.likes?.findIndex(like => like.username === user.username)
 
 
   const likeColor = likedIndex > -1 ? 'yellow' : 'grey';

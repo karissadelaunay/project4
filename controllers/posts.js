@@ -9,7 +9,8 @@ const BUCKET = process.env.BUCKET_NAME;
 module.exports = {
     create,
     index,
-	getRandomPost
+	getRandomPost,
+	show
 }
 
 function create(req, res){
@@ -71,3 +72,14 @@ async function getRandomPost(req, res) {
 		res.status(400).json({ err });
 	}
 } 
+
+async function show(req, res) {
+	try{
+
+		const showPost = await Post.findById(req.params.id)
+		res.status(200).json({ showPost: showPost})
+
+	}catch(err){
+		res.status(400).json({ err });
+	}
+}

@@ -48,7 +48,7 @@ const Juice = (props) => {
 
       useEffect(() => {
         getJuice();
-      });
+      },[]);
 
     return (
         <Grid centered Column={2}>

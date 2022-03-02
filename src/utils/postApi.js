@@ -40,3 +40,15 @@ export function getRandomPost() {
 		throw new Error('Problem Fetching randomPost')
 	})	
 }
+
+export function show(postId) {
+	return fetch(`${BASE_URL}/${postId}`, {
+	headers: {
+		'Authorization': 'Bearer ' + tokenService.getToken()
+	  }
+})
+.then(res => {
+	if(res.ok) return res.json()
+	throw new Error('Problem fetching id')
+})
+}
