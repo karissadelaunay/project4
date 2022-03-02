@@ -14,7 +14,6 @@ module.exports = {
 }
 
 function create(req, res){
-	console.log(req.body, " <- req.body", req.file, " <photo", req.user)
 
 	const filePath = `${uuidv4()}${req.file.originalname}`;
 	const params = {Bucket: BUCKET, Key: filePath, Body: req.file.buffer}
@@ -59,12 +58,12 @@ async function index(req, res) {
 
   
 async function getRandomPost(req, res) {
-	console.log("this is my random post function")
 	try{
 
 			const numPosts = await Post.estimatedDocumentCount()
 			const random = Math.floor(Math.random() * numPosts)
 			const randomPost = await Post.find().skip(random).limit(1).populate('user').exec()
+			if(!randomPost) return res.status(404).json({message: "there is no random post"})
 			res.status(200).json({ post: randomPost });
 
 
