@@ -23,11 +23,10 @@ function create(req, res){
 		
 		try {
 			let juice = await Juice.create({
-				photoUrl: data.Location
+				imgUrl: data.Location
 			})
 
-			juice = await juice.populate('user')
-			res.status(201).json({post})
+			res.status(201).json({juice})
 
 
 		} catch(err){

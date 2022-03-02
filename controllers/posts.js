@@ -78,6 +78,7 @@ async function show(req, res) {
 	try{
 
 		const showPost = await Post.findById(req.params.id).populate('user').exec()
+		if(!showPost) return res.status(404).json({ message: 'could not find show post'})
 		res.status(200).json({ showPost: showPost })
 
 	}catch(err){
