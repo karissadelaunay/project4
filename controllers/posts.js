@@ -10,7 +10,7 @@ module.exports = {
     create,
     index,
 	getRandomPost,
-	//show
+	show
 }
 
 function create(req, res){
@@ -73,14 +73,14 @@ async function getRandomPost(req, res) {
 	}
 } 
 
-// async function show(req, res) {
-// 	console.log(req.params, "<-------this is the params stuff")
-// 	try{
+async function show(req, res) {
+	console.log(req.params, "<-------this is the params stuff")
+	try{
 
-// 		const showPost = await Post.findById(req.params.id)
-// 		res.status(200).json({ showPost: showPost })
+		const showPost = await Post.findById(req.params.id).populate('user').exec()
+		res.status(200).json({ showPost: showPost })
 
-// 	}catch(err){
-// 		res.status(400).json({ err });
-// 	}
-// }
+	}catch(err){
+		res.status(400).json({ err });
+	}
+}
