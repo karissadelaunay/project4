@@ -57,6 +57,9 @@ The app is configured, to use those respective key names for the database, jwt s
 11. AWS S3
 12. Semantic-UI styling
 
+## Link to Launched App
+https://aryasapothecary.herokuapp.com/login
+
 #### Trello Board
 https://trello.com/b/5Gmq15zf/aryas-apothecary-juice-app
 
